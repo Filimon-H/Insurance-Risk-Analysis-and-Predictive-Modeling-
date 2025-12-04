@@ -33,3 +33,24 @@
 **Intended commit message**
 
 - `feat: add configuration module with pytest tests and CI workflow`
+
+## [YYYY-MM-DD] Step 3 – Task 1 data loader and initial EDA helpers
+
+**Context**
+
+- Begin Task 1 by creating a reusable data loading layer and basic EDA metrics.
+- Ensure all logic is modular and covered by unit tests before using it in notebooks.
+
+**Changes in this step**
+
+- Added `src/data_loader.py` with a `DataLoader` class that loads the `MachineLearningRating_v3.txt` dataset from `data/raw` using the configured `data_dir` and the correct pipe (`|`) separator.
+- Created `tests/test_data_loader.py` to validate the loader behaviour, including respecting `Config.data_dir`, handling missing files, and correctly reading a small sample file.
+- Implemented `src/eda_summary.py` with `compute_loss_ratio_overall` and `compute_loss_ratio_by_group` helper functions for portfolio and grouped loss ratios.
+- Added `tests/test_eda_summary.py` to verify the correctness of the loss ratio computations on a small in-memory DataFrame.
+- Created `notebooks/01_task1_eda_overview.ipynb` to load the dataset, inspect its structure, and compute overall and grouped loss ratios using the helper functions.
+
+**Intended commit messages**
+
+- `feat: add data loader for MachineLearningRating_v3 dataset`
+- `feat: add loss ratio EDA helpers with unit tests`
+- `feat: add Task 1 EDA overview notebook`

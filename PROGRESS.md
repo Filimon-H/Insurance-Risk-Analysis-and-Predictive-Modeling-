@@ -20,7 +20,13 @@ claims, perform statistical testing, and build predictive models for risk-based 
 - Created `tests/test_config.py` with initial pytest unit tests.
 - Configured `.github/workflows/unittests.yml` to run pytest in CI on pushes and pull requests.
 
+### [YYYY-MM-DD] Task 1 – initial EDA setup
+
+- Implemented `src/data_loader.py` and `tests/test_data_loader.py` for robust loading of `data/raw/MachineLearningRating_v3.txt`.
+- Added `src/eda_summary.py` and `tests/test_eda_summary.py` to compute and validate overall and grouped loss ratios.
+- Created `notebooks/01_task1_eda_overview.ipynb` to inspect the dataset, compute loss ratios, and prepare for deeper EDA.
+
 ### [YYYY-MM-DD] To be done next
 
-- Implement reproducible data loading and EDA helpers aligned with Task 1.
-- Begin exploratory data analysis (EDA) on the insurance claims dataset.
+- Extend EDA to include missing value analysis, distributions, outlier detection, and time trends.
+- Produce at least three high-quality visualisations that highlight key risk and profitability insights.
