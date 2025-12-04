@@ -54,3 +54,44 @@
 - `feat: add data loader for MachineLearningRating_v3 dataset`
 - `feat: add loss ratio EDA helpers with unit tests`
 - `feat: add Task 1 EDA overview notebook`
+
+## [YYYY-MM-DD] Step 4 – Missing values EDA helper
+
+**Context**
+
+- Extend Task 1 EDA with a clear overview of missing data patterns.
+- Keep the logic reusable and covered by tests, then surface results in the notebook.
+
+**Changes in this step**
+
+- Added `src/eda_missing.py` with `compute_missing_values` to compute per-column missing counts and percentages, sorted by highest missing percentage.
+- Created `tests/test_eda_missing.py` to validate the helper on a small DataFrame, checking ordering, counts, and percentages using `pytest.approx`.
+- Updated `notebooks/01_task1_eda_overview.ipynb` to import `compute_missing_values` and display a table of missing-value statistics.
+
+**Intended commit message**
+
+- `feat: add missing values EDA helper and notebook cell`
+
+## [YYYY-MM-DD] Step 5 – Distributions, outliers, and time trends for Task 1
+
+**Context**
+
+- Round out Task 1 EDA by visualising key distributions, identifying outliers, and examining monthly loss ratio trends.
+- Add simple visual summaries for gender and provincial risk differences to support later hypothesis testing.
+
+**Changes in this step**
+
+- Added `src/eda_plots.py` and `tests/test_eda_plots.py` with a `plot_histograms` helper for basic numeric distributions.
+- Implemented `src/eda_outliers.py` and `tests/test_eda_outliers.py` to compute high quantiles and IQR bounds for outlier analysis.
+- Implemented `src/eda_trends.py` and `tests/test_eda_trends.py` to compute monthly loss ratios from `TransactionMonth`.
+- Extended `notebooks/01_task1_eda_overview.ipynb` with:
+  - Histogram plots for `TotalPremium` and `TotalClaims`.
+  - High-quantile summary for `TotalPremium` and `TotalClaims`.
+  - Monthly loss ratio table and line chart over time.
+  - Additional cells for loss ratio by `Gender` and a bar plot of loss ratio by `Province`.
+
+**Intended commit messages**
+
+- `feat: add histogram EDA helper and notebook plots`
+- `feat: add outlier EDA helpers and quantile summary cell`
+- `feat: add monthly loss ratio trend helper and plots`

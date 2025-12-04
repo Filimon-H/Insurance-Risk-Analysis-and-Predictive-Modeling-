@@ -26,7 +26,12 @@ claims, perform statistical testing, and build predictive models for risk-based 
 - Added `src/eda_summary.py` and `tests/test_eda_summary.py` to compute and validate overall and grouped loss ratios.
 - Created `notebooks/01_task1_eda_overview.ipynb` to inspect the dataset, compute loss ratios, and prepare for deeper EDA.
 
+### [YYYY-MM-DD] Task 1 – missing values analysis
+
+- Implemented `src/eda_missing.py` and `tests/test_eda_missing.py` to quantify missing values per column (counts and percentages).
+- Extended `notebooks/01_task1_eda_overview.ipynb` with a missing-values summary table.
+
 ### [YYYY-MM-DD] To be done next
 
-- Extend EDA to include missing value analysis, distributions, outlier detection, and time trends.
-- Produce at least three high-quality visualisations that highlight key risk and profitability insights.
+- Refine EDA visuals and narrative for reporting (select and polish 3–5 key plots).
+- Prepare a short written summary of Task 1 insights (loss ratios by geography, vehicle type, gender; missing data; outliers; time trends).
