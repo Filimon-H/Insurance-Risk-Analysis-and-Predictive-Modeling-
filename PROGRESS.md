@@ -31,7 +31,12 @@ claims, perform statistical testing, and build predictive models for risk-based 
 - Implemented `src/eda_missing.py` and `tests/test_eda_missing.py` to quantify missing values per column (counts and percentages).
 - Extended `notebooks/01_task1_eda_overview.ipynb` with a missing-values summary table.
 
+### [YYYY-MM-DD] Task 1 – extended EDA (distributions, outliers, ZipCode, trends)
+
+- Implemented additional helpers and tests for numeric summaries, categorical distributions, ZipCode-level monthly aggregates, and boxplots.
+- Updated `notebooks/01_task1_eda_overview.ipynb` with descriptive statistics, categorical count plots, ZipCode top-20 table and scatter, and boxplots for outlier detection, each with interpretation markdown.
+
 ### [YYYY-MM-DD] To be done next
 
-- Refine EDA visuals and narrative for reporting (select and polish 3–5 key plots).
-- Prepare a short written summary of Task 1 insights (loss ratios by geography, vehicle type, gender; missing data; outliers; time trends).
+- Prepare a short written summary of Task 1 insights (loss ratios by geography, vehicle type, gender; missing data; outliers; time trends) in a dedicated `report.md`.
+- Begin Task 2 (DVC setup) to version raw and processed data and make the analysis reproducible.

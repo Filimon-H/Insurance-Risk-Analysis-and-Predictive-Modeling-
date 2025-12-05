@@ -95,3 +95,28 @@
 - `feat: add histogram EDA helper and notebook plots`
 - `feat: add outlier EDA helpers and quantile summary cell`
 - `feat: add monthly loss ratio trend helper and plots`
+
+## [YYYY-MM-DD] Step 6 – Finalise Task 1 EDA checklist
+
+**Context**
+
+- Complete all remaining items from the Task 1 checklist, ensuring both code and notebook cover: descriptive statistics, categorical distributions, ZipCode analysis, geographic comparisons, and boxplot-based outlier detection.
+
+**Changes in this step**
+
+- Extended `src/eda_summary.py` with `summarise_numerics` and tests in `tests/test_eda_summary.py` to provide descriptive statistics for key numeric variables.
+- Enhanced `src/eda_plots.py` and `tests/test_eda_plots.py` with `plot_category_counts` for categorical distributions (e.g. counts by `Province` and `VehicleType`).
+- Added `src/eda_zipcode.py` and `tests/test_eda_zipcode.py` to compute monthly totals and averages of premiums/claims by `PostalCode` and to summarise ZipCode-level behaviour.
+- Introduced `src/eda_boxplots.py` and `tests/test_eda_boxplots.py` to visualise outliers via boxplots for `TotalPremium` and `TotalClaims`.
+- Updated `notebooks/01_task1_eda_overview.ipynb` with:
+  - Descriptive stats tables for key numeric variables.
+  - Count bar charts for `Province` and `VehicleType`.
+  - ZipCode-level top-20 table and a scatter plot of average monthly premium vs claims.
+  - Boxplots for `TotalPremium` and `TotalClaims`, plus interpretation markdown after each major analysis.
+
+**Intended commit messages**
+
+- `feat: add numeric descriptive statistics helper and notebook cell`
+- `feat: add categorical count plots for Province and VehicleType`
+- `feat: add ZipCode-based monthly premium/claims analysis and scatter plot`
+- `feat: add boxplot helpers and outlier visualisation cells`
