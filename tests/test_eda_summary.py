@@ -6,7 +6,11 @@ calculations overall and by groups.
 
 import pandas as pd
 
-from src.eda_summary import compute_loss_ratio_overall, compute_loss_ratio_by_group
+from src.eda_summary import (
+    compute_loss_ratio_overall,
+    compute_loss_ratio_by_group,
+    summarise_numerics,
+)
 
 
 def _sample_df() -> pd.DataFrame:
@@ -50,3 +54,15 @@ def test_compute_loss_ratio_by_group_single_column():
     assert list(result_sorted["total_premium"]) == [400.0, 600.0]
     assert list(result_sorted["total_claims"]) == [50.0, 300.0]
     assert list(result_sorted["loss_ratio"]) == [0.125, 0.5]
+
+
+def test_summarise_numerics_returns_describe_like_table():
+    df = _sample_df()
+
+    summary = summarise_numerics(df, ["TotalPremium", "TotalClaims"])
+
+    # Index should be the column names we passed
+    assert set(summary.index) == {"TotalPremium", "TotalClaims"}
+    # Expect standard describe statistics columns
+    for col in ["count", "mean", "std", "min", "25%", "50%", "75%", "max"]:
+        assert col in summary.columns

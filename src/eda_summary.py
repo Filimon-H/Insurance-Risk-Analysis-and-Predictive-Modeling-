@@ -60,3 +60,15 @@ def compute_loss_ratio_by_group(df: pd.DataFrame, group_cols: list[str]) -> pd.D
     )
 
     return grouped.reset_index()
+
+
+def summarise_numerics(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+    """Summarise numeric columns using descriptive statistics.
+
+    Returns a DataFrame with index as column names and standard
+    descriptive statistics (count, mean, std, min, quartiles, max).
+    """
+
+    numeric_df = df[columns]
+    summary = numeric_df.describe().T  # rows are columns
+    return summary
