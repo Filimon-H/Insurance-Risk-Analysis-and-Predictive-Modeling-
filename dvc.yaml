@@ -1,0 +1,8 @@
+stages:
+  make_processed_csv:
+    cmd: .venv/bin/python scripts/make_processed_csv.py
+    deps:
+    - data/raw/MachineLearningRating_v3.txt
+    - scripts/make_processed_csv.py
+    outs:
+    - data/processed/MachineLearningRating_v3.csv
