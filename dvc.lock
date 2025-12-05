@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  make_processed_csv:
+    cmd: .venv/bin/python scripts/make_processed_csv.py
+    deps:
+    - path: data/raw/MachineLearningRating_v3.txt
+      hash: md5
+      md5: f6b7009b68ae21372b7deca9307fbb23
+      size: 529363713
+    - path: scripts/make_processed_csv.py
+      hash: md5
+      md5: 3d5bae4788c5d08d16b71cb3766f383f
+      size: 924
+    outs:
+    - path: data/processed/MachineLearningRating_v3.csv
+      hash: md5
+      md5: a56fd5de94259a10123bee44a4716627
+      size: 526427567
