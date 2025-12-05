@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
+from typing import Iterable
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -38,5 +38,36 @@ def plot_histograms(
         if log_scale:
             ax.set_yscale("log")
 
+    fig.tight_layout()
+    return fig
+
+
+def plot_category_counts(
+    df: pd.DataFrame,
+    column: str,
+    top_n: int | None = None,
+) -> plt.Figure:
+    """Plot a bar chart of category counts for a given column.
+
+    Parameters
+    ----------
+    df:
+        Input DataFrame.
+    column:
+        Name of the categorical column to count.
+    top_n:
+        If provided, only the top_n most frequent categories are shown.
+    """
+
+    counts = df[column].value_counts(dropna=False)
+    if top_n is not None:
+        counts = counts.head(top_n)
+
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.bar(counts.index.astype(str), counts.values)
+    ax.set_title(f"Count by {column}")
+    ax.set_xlabel(column)
+    ax.set_ylabel("Count")
+    ax.tick_params(axis="x", rotation=45)
     fig.tight_layout()
     return fig
