@@ -8,6 +8,7 @@ from typing import Any, Dict
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 from sklearn.metrics import (
     mean_squared_error,
@@ -50,6 +51,36 @@ class ClassificationMetrics:
 def train_linear_regression(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
     """Train a Linear Regression model."""
     model = LinearRegression()
+    model.fit(X_train, y_train)
+    return model
+
+
+def train_decision_tree_regressor(
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    max_depth: int = 10,
+    random_state: int = 42,
+) -> DecisionTreeRegressor:
+    """Train a Decision Tree Regressor."""
+    model = DecisionTreeRegressor(
+        max_depth=max_depth,
+        random_state=random_state,
+    )
+    model.fit(X_train, y_train)
+    return model
+
+
+def train_decision_tree_classifier(
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    max_depth: int = 10,
+    random_state: int = 42,
+) -> DecisionTreeClassifier:
+    """Train a Decision Tree Classifier."""
+    model = DecisionTreeClassifier(
+        max_depth=max_depth,
+        random_state=random_state,
+    )
     model.fit(X_train, y_train)
     return model
 
